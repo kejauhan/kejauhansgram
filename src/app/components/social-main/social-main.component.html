@@ -1,0 +1,29 @@
+<div 
+style="background-color: #f8f1f1;" 
+class="row" 
+align="center">
+  <div class="card-columns col-md">
+    <div *ngFor="let posts of posts.data">
+      <div class="card anyPost" style="width: 22rem; margin-top: 20px; border-radius: 20px;">
+        <div class="card-header">
+          <a 
+          style="color: black;" 
+          routerLink="/{{posts.owner.id}}">
+          <b>{{ posts.owner.firstName }} {{ posts.owner.lastName }} </b>
+          </a>
+        </div>
+        <img src="{{posts.image}}" class="card-img-top">
+        <div style="background-color: #80ffdb; "class="card-body">
+          <li class="list-group-item">❤️{{ posts.likes }} Likes</li>
+          <p class="card-text">{{posts.text}}</p>
+          <div style="margin-bottom: 10px;" class="tags" *ngFor="let tags of posts.tags">
+            <a routerLink="/tag/{{tags}}"><span style="color: white;" class="badge rounded-pill bg-primary">#{{tags}}</span></a>
+          </div>
+          <a href="{{posts.link}}" class="btn btn-danger">Click Here To Go Somewhere</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+<router-outlet></router-outlet>
